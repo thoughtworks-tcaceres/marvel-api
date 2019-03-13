@@ -1,0 +1,112 @@
+<% include ./partials/header %>
+
+<a href="/"><button class="btn btn-danger btn-med">Go Back</button></a>
+
+    <% parsedData.data.results.forEach(character => { %>
+    <!--<div class="container container-fluid" id="totalContainer">-->
+        <div class="card">
+            
+            <div class="row">
+                <div class="col" id="generalInfoContainer">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><%= character.name %></h2>
+                        </div>
+                        <img class="card-img-top img-fluid img-thumbnail" src="<%=character.thumbnail.path%>.<%=character.thumbnail.extension%>" alt="<%=character.name%>">
+                        <div class="card-body">
+                            <h5 class="card-title">description:</h5>
+                            <p class="card-text"><%= character.description %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col" id="comicContainer">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">comics</h5>
+                            <p class="card-text">
+                                comics available: <%= character.comics.available %> <br>
+                                comics returned: <%= character.comics.returned %> <br>
+                                <% character.comics.items.forEach(comic => { %>
+                                    Comic name: <%= comic.name %> <br>
+                                <% }); %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col" id="seriesContainer">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">series</h5>
+                            <p class="card-text">
+                                series available: <%= character.series.available %> <br>
+                                series returned: <%= character.series.returned %> <br>
+                            <% character.series.items.forEach(serie => { %>
+                                series name: <%= serie.name %> <br>
+                            <% }); %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col" id="storiesContainer">
+                    <div class='card'>
+                        <div class="card-body">
+                            <h5 class="card-title">stories</h5>
+                            <p class="card-text">
+                                stories available: <%= character.stories.available %> <br>
+                                stories returned: <%= character.stories.returned %> <br>
+                                <% character.stories.items.forEach(story => { %>
+                                    story name: <%= story.name %><br>
+                                    story type: <%= story.type %><br>
+                                <% }); %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col" id="eventsContainer">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">events</h5>
+                            <p class="card-text">
+                                character events available: <%= character.events.available %> <br>
+                                character events returned: <%= character.events.returned %> <br>
+                                <% character.events.items.forEach(event => { %>
+                                    event name: <%= event.name %> <br>
+                                <% }); %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col" id="urlContainer">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">links</h5>
+                            <p class="card-text">
+                                <% character.urls.forEach(url => { %>
+                                    <h3><a href="<%=url.url%>"><%= url.type %></a></h3>
+                                <% }); %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    <!--</div>-->
+    <% }); %>
+
+<% include ./partials/footer %>

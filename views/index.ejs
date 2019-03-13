@@ -1,0 +1,22 @@
+<% include ./partials/header %> 
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+  <h1 class="display-4">Search Criteria</h1>
+  <p class="lead">search via character name / character name starts with</p>
+  <hr class="my-4">
+    <form action="/results" method="GET">
+        <div class="form-group">
+            <label for="characterName">character name</label>
+            <input type="text" placeholder="character name" name="characterName" id="characterName">
+        </div>
+        <div class="form-group">
+            <label for="nameStartsWith">name starts with</label>
+            <input type="text" placeholder="name starts with" name="nameStartsWith" id="nameStarsWith">
+        </div>
+            <button class="btn btn-primary btn-med" type="submit">SUBMIT</button>
+    </form>
+    </div>
+</div>
+
+<% include ./partials/footer %>
