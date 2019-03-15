@@ -4,7 +4,7 @@ var express = require("express"),
     request = require("request"),
     CryptoJS = require("crypto-js");
     
-var api = require("./keys.js");
+//var api = require("./keys.js");
 
 //default view engine, no longer need to add .ejs
 app.set("view engine", "ejs");
