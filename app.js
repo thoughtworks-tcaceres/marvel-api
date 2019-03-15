@@ -23,8 +23,14 @@ app.get("/", (req, res) => {
 
 //results page
 app.get("/results", (req, res) => {
-    var apipublickey = process.env.apiPublic || api.apiKey.apiPublic;
-    var apiprivatekey = process.env.apiPrivate || api.apiKey.apiPrivate;
+    if(process.env.NODE_ENV !== "production"){
+        var apipublickey = api.apiKey.apiPublic;
+        var apiprivatekey = api.apiKey.apiPrivate;
+    } else {
+        var apipublickey = process.env.apiPublic;
+        var apiprivatekey = process.env.apiPrivate;
+    }
+    
     var web = "https://gateway.marvel.com:443/v1/public/characters?";
     var characterName = req.query.characterName;
     var nameStartsWith = req.query.nameStartsWith;
