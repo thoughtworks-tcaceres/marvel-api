@@ -3,6 +3,8 @@ var express = require("express"),
     bodyParser = require("body-parser"),
     request = require("request"),
     CryptoJS = require("crypto-js");
+    
+var apiKey = require("./keys.js");
 
 //default view engine, no longer need to add .ejs
 app.set("view engine", "ejs");
@@ -20,8 +22,8 @@ app.get("/", (req, res) => {
 
 //results page
 app.get("/results", (req, res) => {
-    var apipublickey = "1af63b1c1437e40b0988ae2de8a60d47";
-    var apiprivatekey = "c09d075ac62db452d8de84108bff18775ae2d505";
+    var apipublickey = process.env.apiPublic || apiKey.apiPublic;
+    var apiprivatekey = process.env.apiPrivate || apiKey.apiPrivate;
     var web = "https://gateway.marvel.com:443/v1/public/characters?";
     var characterName = req.query.characterName;
     var nameStartsWith = req.query.nameStartsWith;
