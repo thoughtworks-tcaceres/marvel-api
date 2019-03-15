@@ -49,7 +49,7 @@ app.get("/results", (req, res) => {
     url += "&ts=" + ts + "&apikey=" + apipublickey + "&hash=" + hashkey;
     
     //var url = web + characterName + "&ts=" + ts + "&apikey=" + apipublickey + "&hash=" + hashkey;
-    
+    console.log(url);
     request(url, (error, response, body) => {
         if(!error && response.statusCode === 200){
             var parsedData = JSON.parse(body);
