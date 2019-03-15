@@ -15,7 +15,7 @@ app.use(express.static(__dirname + "/public"));
 
 //index page
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("index");
 });
 
 //results page
